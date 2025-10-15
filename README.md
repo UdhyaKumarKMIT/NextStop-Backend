@@ -1,6 +1,4 @@
-Here's a clean and concise version of your **Route Management API** documentation formatted specifically for a GitHub `README.md` file:
 
----
 
 # 🚏 Route Management API
 
@@ -24,7 +22,7 @@ http://localhost:5050/api/routes
 ### 1. Get All Routes
 
 * **GET** `/`
-* **Auth**: ❌ Public
+* **Auth**: Public
 * **Response**: Array of route objects
 
 ---
@@ -32,7 +30,7 @@ http://localhost:5050/api/routes
 ### 2. Get Route by ID
 
 * **GET** `/:id`
-* **Auth**: ❌ Public
+* **Auth**:  Public
 * **Params**:
 
   * `id`: Route ID
