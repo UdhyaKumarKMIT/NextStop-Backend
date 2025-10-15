@@ -19,5 +19,4 @@
       };
 
 
-
-      module.exports = { authBooking };
+module.exports = { authBooking };

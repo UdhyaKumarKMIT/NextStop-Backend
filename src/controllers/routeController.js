@@ -1,5 +1,5 @@
 // controllers/routeController.js
-const Route = require("../models/routeModel");
+const Route = require("../models/Route");
 
 // Add a new route (Admin only)
 const addRoute = async (req, res) => {
