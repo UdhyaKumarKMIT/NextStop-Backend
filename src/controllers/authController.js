@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const User = require('../models/User');
 
@@ -46,8 +47,15 @@ const login = async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ message: "Invalid password" });
+    const token = jwt.sign(
+      { id: user._id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" } // expires in 1 hour
+    );
+    console.log(token);
 
-    res.json({ message: "Login successful" });
+    // 4️⃣ Send token back
+    res.json({ message: "Login successful", token });  
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });

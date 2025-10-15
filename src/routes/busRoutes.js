@@ -1,4 +1,3 @@
-// routes/busRoutes.js
 const express = require("express");
 const router = express.Router();
 const {
@@ -6,14 +5,16 @@ const {
   getAllBuses,
   getBusById,
   updateBus,
-  deleteBus
+  deleteBus,
+  searchBuses,
 } = require("../controllers/busController");
 
-const { authBooking } = require("../middleware/authMiddleware"); // Only logged-in user or admin
-const { adminCheck } = require("../middleware/adminMiddleware"); // Optional middleware to restrict admin actions
+const { authBooking } = require("../models/middleware/authMiddleware");
+const { adminCheck } = require("../models/middleware/adminMiddleware");
 
-// Public route
+// Public routes
 router.get("/", getAllBuses);
+router.get("/search", searchBuses); 
 router.get("/:id", getBusById);
 
 // Admin protected routes

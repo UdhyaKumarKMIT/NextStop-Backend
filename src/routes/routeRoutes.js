@@ -9,8 +9,8 @@ const {
   deleteRoute
 } = require("../controllers/routeController");
 
-const { authBooking } = require("../middleware/authMiddleware"); // Temporary auth
-const { adminCheck } = require("../middleware/authMiddleware"); // Admin only
+const { authBooking } = require("../models/middleware/authMiddleware"); // Temporary auth
+const { adminCheck } = require("../models/middleware/adminMiddleware"); // Admin only
 
 // Public routes
 router.get("/", getAllRoutes);

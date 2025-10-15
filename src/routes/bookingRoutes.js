@@ -1,7 +1,7 @@
 // routes/bookingRoutes.js
 const express = require("express");
 const router = express.Router();
-const { authBooking } = require("../middleware/authMiddleware");
+const { authBooking } = require("../models/middleware/authMiddleware");
 const {
   bookTicket,
   cancelBooking,
