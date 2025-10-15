@@ -103,4 +103,75 @@ http://localhost:5050/api/routes
   * `id`: Route ID
 * **Response**: Success message
 
+
+---
+
+# 🎟️ Booking API
+
+Handles ticket bookings, cancellations, and retrieving user-specific bookings.
+
+## 📍 Base URL
+
+```
+http://localhost:5050/api/bookings
+```
+
+## 🔐 Authentication
+
+* **All Booking Routes**: Require user authentication via Bearer token
+
+---
+
+## 📘 Endpoints
+
+### 1. Book a Ticket
+
+* **POST** `/`
+* **Auth**: ✅ Required
+* **Headers**:
+
+  ```
+  Authorization: Bearer <token>
+  Content-Type: application/json
+  ```
+* **Body**:
+
+  ```json
+  {
+    "bus": "bus_id_here",
+    "seatsBooked": 2,
+    "totalFare": 800
+  }
+  ```
+* **Response**: Booking confirmation object
+
+---
+
+### 2. Cancel a Booking
+
+* **PUT** `/cancel/:id`
+* **Auth**: ✅ Required
+* **Headers**:
+
+  ```
+  Authorization: Bearer <token>
+  ```
+* **Params**:
+
+  * `id`: Booking ID to cancel
+* **Response**: Updated booking object with status `"Cancelled"`
+
+---
+
+### 3. Get User Bookings
+
+* **GET** `/user`
+* **Auth**: ✅ Required
+* **Headers**:
+
+  ```
+  Authorization: Bearer <token>
+  ```
+* **Response**: Array of user’s booking objects
+
 ---
